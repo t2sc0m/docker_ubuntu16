@@ -16,6 +16,7 @@ RUN rm -f /etc/localtime \
 
 RUN apt-get update
 RUN apt-get install -y ca-certificates \
+                openssh-server \
                 curl \
                 locales \
                 wget \
@@ -71,4 +72,5 @@ RUN $PIP install gunicorn \
 
 VOLUME ["/data"]
 
-CMD ["/bin/bash"]
+#CMD ["/bin/bash"]
+CMD ["/usr/sbin/sshd -D"]
